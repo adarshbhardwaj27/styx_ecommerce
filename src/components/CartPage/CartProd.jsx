@@ -9,14 +9,21 @@ const CartProd = ({ item }) => {
   const productCount = productInCart ? productInCart.quantity : 0;
   // Calculate whether the "+" button should be disabled
   const isAddButtonDisabled = productCount >= item.stock;
-  useEffect(() => {
-    if (isAddButtonDisabled) {
+  // Function to add the product to the cart
+  const handleAdd = () => {
+    if (productCount == item.stock - 1) {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
       }, 1000);
     }
-  }, [isAddButtonDisabled]);
+    addToCart(item);
+  };
+
+  // Function to remove the product from the cart
+  const handleRemove = () => {
+    removeFromCart(item);
+  };
   return (
     <div key={item.id} className="cart-item">
       <img src={item.image} alt={item.name} className="prodCartImg" />
@@ -25,16 +32,13 @@ const CartProd = ({ item }) => {
           <h2>{item.name}</h2>
           <p>Quantity: {item.quantity}</p>
           <div className="CartUpdateBtns">
-            <button
-              className="CartUpdateBtn"
-              onClick={() => removeFromCart(item)}
-            >
+            <button className="CartUpdateBtn" onClick={handleRemove}>
               -
             </button>
             <button
               className="CartUpdateBtn"
               disabled={isAddButtonDisabled}
-              onClick={() => addToCart(item)}
+              onClick={handleAdd}
             >
               +
             </button>

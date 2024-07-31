@@ -11,6 +11,12 @@ const Product = ({ product }) => {
 
   // Function to add the product to the cart
   const handleAdd = () => {
+    if (productCount == product.stock - 1) {
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 1000);
+    }
     addToCart(product);
   };
 
@@ -21,15 +27,6 @@ const Product = ({ product }) => {
 
   // Calculate whether the "+" button should be disabled
   const isAddButtonDisabled = productCount >= product.stock;
-
-  useEffect(() => {
-    if (isAddButtonDisabled) {
-      setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 1000);
-    }
-  }, [isAddButtonDisabled]);
 
   return (
     <div className="product">
