@@ -10,6 +10,7 @@
     font-style: normal;
 }
 
+/* Header */
 nav {
     display: flex;
     justify-content: space-between;
@@ -21,6 +22,7 @@ nav {
     color: white;
 }
 
+/* Cart */
 .cart {
     position: relative;
     display: inline-block;
@@ -50,6 +52,7 @@ nav {
     z-index: 1111;
 }
 
+/* Product */
 .prodImg {
     width: 18rem;
 }
@@ -165,15 +168,17 @@ nav {
 
 }
 
-.cartPage {
-    margin: 4rem 2rem;
-}
+
 
 
 .order {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    margin: 4rem 2rem;
+}
+
+.cartPage {
     margin: 4rem 2rem;
 }
 
@@ -269,6 +274,8 @@ nav {
     /* Change cursor to indicate disabled */
 }
 
+/* Search box */
+
 .search {
     display: flex;
     height: 4rem;
@@ -290,9 +297,6 @@ nav {
     outline: none;
     box-shadow: 0 0 0 2px #4f46e5, 0 0 0 4px #e5e7eb;
 }
-
-
-/* Order.css */
 
 /* Style for the popup */
 .popup {

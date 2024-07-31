@@ -12,7 +12,7 @@ const Order = () => {
   useEffect(() => {
     let sum = 0;
     for (let i in cartItems) {
-      sum += cartItems[i].price;
+      sum += cartItems[i].price * cartItems[i].quantity;
     }
     setSubtotal(sum);
     let taxammount = 0.18 * sum;
