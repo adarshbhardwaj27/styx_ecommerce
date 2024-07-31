@@ -3,48 +3,56 @@
     "id": 1,
     "name": "Samsung Galaxy M35 5G ",
     "price": 19999,
-    "image": "../media/image.png"
+    "image": "../media/image.png",
+    "stock": 2
   },
   {
     "id": 2,
     "name": "Samsung Galaxy S21",
     "price": 74999,
-    "image": "../media/s21.jpg"
+    "image": "../media/s21.jpg",
+    "stock": 2
   },
   {
     "id": 3,
     "name": "iPhone 12",
     "price": 79999,
-    "image": "../media/iphone12.jpg"
+    "image": "../media/iphone12.jpg",
+    "stock": 2
   },
   {
     "id": 4,
     "name": "OnePlus 9 Pro",
     "price": 64999,
-    "image": "../media/oneplus.jpg"
+    "image": "../media/oneplus.jpg",
+    "stock": 2
   },
   {
     "id": 5,
     "name": "Google Pixel 6",
     "price": 59999,
-    "image": "../media/google.jpg"
+    "image": "../media/google.jpg",
+    "stock": 2
   },
   {
     "id": 6,
     "name": "Xiaomi Mi 11",
     "price": 49999,
-    "image": "../media/mi11lite.jpg"
+    "image": "../media/mi11lite.jpg",
+    "stock": 2
   },
   {
     "id": 7,
     "name": "Oppo Find X3 Pro",
     "price": 69999,
-    "image": "../media/oppofind.jpg"
+    "image": "../media/oppofind.jpg",
+    "stock": 2
   },
   {
     "id": 8,
     "name": "Vivo X60 Pro",
     "price": 46999,
-    "image": "../media/vivox60.jpg"
+    "image": "../media/vivox60.jpg",
+    "stock": 2
   }
 ]

@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../App";
+import Popup from "../sub-components/Popup";
 
 const Order = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [tax, setTax] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     let sum = 0;
     for (let i in cartItems) {
@@ -17,6 +20,22 @@ const Order = () => {
     setTotal(totalamount);
     setTax(taxammount);
   }, [cartItems]);
+
+  const handleCheckout = () => {
+    if (cartItems.length === 0) return; // Do nothing if cart is empty
+    // Play sound when the pop-up is shown
+    const audio = new Audio("/media/order.mp3");
+    audio.play();
+    setCartItems([]);
+    setShowPopup(true);
+    setTimeout(() => {
+      window.location.href = "/";
+      setShowPopup(false);
+    }, 4000);
+  };
+
+  // Determine if the button should be disabled
+  const isButtonDisabled = cartItems.length === 0;
 
   return (
     <div className="order">
@@ -40,10 +59,17 @@ const Order = () => {
       <button
         type="button"
         className="checkout"
-        onClick={() => setCartItems([])}
+        onClick={handleCheckout}
+        disabled={isButtonDisabled}
       >
         Checkout
       </button>
+      {showPopup && (
+        <Popup
+          bgcolor={"#46d83f"}
+          content={"Thanks for ordering with Swipkart!"}
+        />
+      )}
     </div>
   );
 };

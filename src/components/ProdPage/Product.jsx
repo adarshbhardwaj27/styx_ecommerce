@@ -1,11 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../App";
+import Popup from "../sub-components/Popup";
 
 const Product = ({ product }) => {
-  const formattedPrice = product.price.toLocaleString("en-IN");
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const formattedPrice = product.price.toLocaleString("en-IN");
   const productInCart = cartItems.find((item) => item.id === product.id);
   const productCount = productInCart ? productInCart.quantity : 0;
+  const [showPopup, setShowPopup] = useState(false);
+
   // Function to add the product to the cart
   const handleAdd = () => {
     addToCart(product);
@@ -15,10 +18,23 @@ const Product = ({ product }) => {
   const handleRemove = () => {
     removeFromCart(product);
   };
+
+  // Calculate whether the "+" button should be disabled
+  const isAddButtonDisabled = productCount >= product.stock;
+
+  useEffect(() => {
+    if (isAddButtonDisabled) {
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 1000);
+    }
+  }, [isAddButtonDisabled]);
+
   return (
     <div className="product">
       <div className="imageDiv">
-        <img src={product.image} alt="k" srcSet="" className="prodImg" />
+        <img src={product.image} alt="k" className="prodImg" />
       </div>
       <h3 className="prodName">{product.name}</h3>
       <div className="price">
@@ -33,7 +49,12 @@ const Product = ({ product }) => {
               -
             </button>
             <span className="prodCount">{productCount}</span>
-            <button type="button" className="button_small" onClick={handleAdd}>
+            <button
+              type="button"
+              className="button_small"
+              onClick={handleAdd}
+              disabled={isAddButtonDisabled}
+            >
               +
             </button>
           </div>
@@ -43,6 +64,7 @@ const Product = ({ product }) => {
           </button>
         )}
       </div>
+      {showPopup && <Popup bgcolor={"#ff0000"} content={"Out of Stock"} />}
     </div>
   );
 };

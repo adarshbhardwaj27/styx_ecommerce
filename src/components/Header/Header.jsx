@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <nav className="nav_bar">
       <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-        <h1>SwipeKart</h1>
+        <h1 className="heading">SwipeKart</h1>
       </Link>
       <div className="cart">
         <Link to={"/cart"}>
