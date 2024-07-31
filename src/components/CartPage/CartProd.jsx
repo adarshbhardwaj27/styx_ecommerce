@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../App";
 import Popup from "../sub-components/Popup";
 
@@ -11,7 +11,7 @@ const CartProd = ({ item }) => {
   const isAddButtonDisabled = productCount >= item.stock;
   // Function to add the product to the cart
   const handleAdd = () => {
-    if (productCount == item.stock - 1) {
+    if (productCount === item.stock - 1) {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
