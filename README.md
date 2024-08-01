@@ -16,7 +16,8 @@ In the project, you can ->
 8) Adhere to WCAG guidelines for color contrast.
 
 
-![Screenshot 2024-07-30 090801](https://github.com/user-attachments/assets/647a3bc3-ad58-45fd-87d8-6ef1a4b9739f)
+![image](https://github.com/user-attachments/assets/0e97dab2-eb02-4e4d-b5d4-335f7b02710f)
+
 
 .
 .
